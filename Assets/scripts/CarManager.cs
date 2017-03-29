@@ -21,6 +21,7 @@ public class CarManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Debug.Log (player.GetAxis ("Thrust"));
-		rb.AddForce (player.GetAxis ("Thrust"), 0, 0);
+		//rb.AddTorque( player.GetAxis ("Thrust") * 100, 0, 0);
+		rb.MovePosition(rb.position + (transform.forward * (player.GetAxis ("Thrust") * 100)) * Time.deltaTime);
 	}
 }
